@@ -15,7 +15,7 @@ export default class UsersController {
     const payload = await request.validate(RegisterUserValidator);
     const user = await User.create(payload);
 
-    await Category.create({name: "default", owner: user.id})
+    await Category.create({ name: "default", owner: user.id });
 
     return response.created(user);
   }
@@ -32,10 +32,10 @@ export default class UsersController {
 
     const userInfos = await User.findBy("email", email);
 
-    if(userInfos) {
-      const token = await ApiToken.findBy("user_id", userInfos.id)
-      if(token) {
-        await token.delete()
+    if (userInfos) {
+      const token = await ApiToken.findBy("user_id", userInfos.id);
+      if (token) {
+        await token.delete();
       }
     }
 

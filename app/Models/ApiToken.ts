@@ -1,27 +1,27 @@
-import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { DateTime } from "luxon";
+import { BaseModel, column } from "@ioc:Adonis/Lucid/Orm";
 
 export default class ApiToken extends BaseModel {
-  public static table: "api_tokens"
+  public static table: "api_tokens";
 
   @column({ isPrimary: true })
-  public id: number
+  public id: number;
 
   @column()
-  public user_id: number
+  public user_id: number;
 
   @column()
-  public name: string
+  public name: string;
 
   @column()
-  public type: string
+  public type: string;
 
   @column()
-  public token: string
+  public token: string;
 
   @column.dateTime({ autoCreate: true })
-  public createdAt: DateTime
+  public createdAt: DateTime;
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  public updatedAt: DateTime
+  public updatedAt: DateTime;
 }

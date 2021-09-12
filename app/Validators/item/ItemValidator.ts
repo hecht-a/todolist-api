@@ -11,7 +11,7 @@ export default class ItemValidator {
     owner: schema.number(),
     start: schema.string(),
     end: schema.string(),
-    description: schema.string.optional({ trim: true })
+    description: schema.string.optional({ trim: true }),
   });
 
   public messages = {};

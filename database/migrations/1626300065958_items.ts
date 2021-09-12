@@ -14,12 +14,7 @@ export default class ItemsSchema extends BaseSchema {
         .references("id")
         .inTable("categories")
         .onDelete("CASCADE");
-      table
-        .integer("owner")
-        .unsigned()
-        .references("id")
-        .inTable("users")
-        .onDelete("CASCADE");
+      table.integer("owner").unsigned().references("id").inTable("users").onDelete("CASCADE");
       table.string("description");
       table.timestamp("start", { useTz: true });
       table.timestamp("end", { useTz: true });

@@ -1,4 +1,4 @@
-import {HttpContextContract} from "@ioc:Adonis/Core/HttpContext";
+import { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 import CategoryValidator from "App/Validators/category/CategoryValidator";
 import Category from "App/Models/Category";
 
@@ -29,7 +29,7 @@ export default class CategoriesController {
    */
   public async index({ auth }: HttpContextContract) {
     await auth.use("api").authenticate();
-    return Category.query().select("*").where("owner", auth.use("api").user!.id)
+    return Category.query().select("*").where("owner", auth.use("api").user!.id);
   }
 
   /**
@@ -39,12 +39,22 @@ export default class CategoriesController {
    */
   public async delete({ auth, params }: HttpContextContract) {
     await auth.use("api").authenticate();
-    const category = (await Category.find(params.id))!
-    return category.delete()
+    const category = await Category.find(params.id);
+    if (category === null) {
+      return {
+        error: {
+          message: `Category with id: ${params.id} is not found.`,
+        },
+      };
+    }
+    await category.delete();
+    return {
+      message: `Category with id: ${params.id} has been deleted.`,
+    };
   }
 
   public async get({ auth, params }: HttpContextContract) {
     await auth.use("api").authenticate();
-    return Category.find(params.id)
+    return Category.find(params.id);
   }
 }

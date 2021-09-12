@@ -20,8 +20,8 @@ Route.group(() => {
 
 Route.group(() => {
   Route.post("/", "ItemsController.store");
-  Route.get("/", "ItemsController.get")
+  Route.get("/", "ItemsController.get");
   Route.get("/:category", "ItemsController.index");
-  Route.put("/:id", "ItemsController.update")
-  Route.delete("/:id", "ItemsController.delete")
-}).prefix("/item")
+  Route.put("/:id", "ItemsController.update");
+  Route.delete("/:id", "ItemsController.delete");
+}).prefix("/item");
