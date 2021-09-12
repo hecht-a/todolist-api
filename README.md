@@ -35,7 +35,8 @@ yarn start
 ```
 ---
 ## Routes
-`GET /health`: Get health of the api
+`GET /health`: Get health of the api  
+
 ---
 ### Users routes
 #### Request  
