@@ -1,0 +1,26 @@
+type: "array"
+items:
+  type: "object"
+  properties:
+    id:
+      type: "number"
+      example: 1
+    name:
+      type: "string"
+      example: "First category"
+    owner:
+      type: "number"
+      example: 1
+    createdAt:
+      type: "string"
+      example: "2021-03-23T16:13:08.489+01:00"
+      format: "date-time"
+    updatedAt:
+      type: "string"
+      example: "2021-03-23T16:13:08.489+01:00"
+      format: "date-time"
+    items:
+      type: "array"
+      items:
+        $ref: "Item.yaml"
+        type: "array"

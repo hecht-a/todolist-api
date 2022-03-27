@@ -1,0 +1,19 @@
+type: "object"
+properties:
+  name:
+    type: "string"
+    example: "Go shopping"
+  category:
+    type: "number"
+    example: 1
+  description:
+    type: "string"
+    example: "I have to go shopping"
+  start:
+    type: "string"
+    example: "2021-03-23T16:13:08.489+01:00"
+    format: "date-time"
+  end:
+    type: "string"
+    example: "2021-03-23T16:13:08.489+01:00"
+    format: "date-time"

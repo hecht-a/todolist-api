@@ -1,0 +1,12 @@
+type: "object"
+properties:
+  type:
+    type: "string"
+    example: "bearer"
+  token:
+    type: "string"
+    example: "Mw.WY0dJIwa6VOaz1OWhSfhes0hBFihme_j_dm5RXdYJ6Pu-ELBHv63pcBtFzp3"
+  expires_at:
+    type: "string"
+    example: "2021-03-23T16:13:08.489+01:00"
+    format: "date-time"

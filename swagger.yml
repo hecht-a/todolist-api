@@ -1,0 +1,334 @@
+openapi: "3.0.0"
+info:
+  title: "Todolist"
+  version: "1.0.0"
+paths:
+  /uploads/*:
+    get:
+      summary: " (route.ts)"
+      description: ""
+      parameters: []
+      tags:
+        - "OTHER"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json: {}
+      security: []
+  /health:
+    get:
+      summary: " (route.ts)"
+      description: ""
+      parameters: []
+      tags:
+        - "OTHER"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json: {}
+      security: []
+  /register:
+    post:
+      summary: "Register an user"
+      description: "Use this request to create an account"
+      parameters: []
+      tags:
+        - "USER"
+      responses:
+        201:
+          description: "Created"
+          content:
+            application/json: {
+              "schema": {
+                "$ref": "swagger/response/User.yaml"
+              }
+            }
+      security: []
+      requestBody:
+        content:
+          application/json: {
+            "schema": {
+              "$ref": "swagger/request/Register.yaml"
+            }
+          }
+  /login:
+    post:
+      summary: "Log an user"
+      description: ""
+      parameters: []
+      tags:
+        - "USER"
+      responses:
+        200:
+          description: "Logged in"
+          content:
+            application/json: {
+              "schema": {
+                "$ref": "swagger/response/Bearer.yaml"
+              }
+            }
+      security: []
+      requestBody:
+        content:
+          application/json: {
+            "schema": {
+              "$ref": "swagger/request/Login.yaml"
+            }
+          }
+  /me:
+    get:
+      summary: "Get info of the logged user"
+      description: ""
+      parameters: []
+      tags:
+        - "USER"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json: {
+              "schema": {
+                "$ref": "swagger/response/Me.yaml"
+              }
+            }
+      security:
+        - BearerAuth:
+            - "access"
+  /categories:
+    get:
+      summary: "Get categories created by the authenticated user"
+      description: ""
+      parameters: []
+      tags:
+        - "CATEGORIES"
+      responses:
+        200:
+          description: "Entities found"
+          content:
+            application/json:
+              schema:
+                $ref: "swagger/response/Category.yaml"
+        401:
+          description: "Unauthorized"
+        403:
+          description: "Forbidden"
+      security:
+        - BearerAuth:
+            - "access"
+    post:
+      summary: "Create a category"
+      description: "Create a category"
+      parameters: []
+      tags:
+        - "CATEGORIES"
+      responses:
+        200:
+          description: "Category created"
+          content:
+            application/json:
+              schema:
+                $ref: "swagger/response/NewCategory.yaml"
+        401:
+          description: "Unauthorized"
+        403:
+          description: "Forbidden"
+      security:
+        - BearerAuth:
+            - "access"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "swagger/request/CreateCategory.yaml"
+  /categories/{id}:
+    get:
+      summary: "Get category identified by the id passed in params"
+      description: "Get category identified by the id passed in params"
+      parameters:
+        - in: "path"
+          name: "id"
+          schema:
+            type: "string"
+          required: true
+      tags:
+        - "CATEGORIES"
+      responses:
+        401:
+          description: "Unauthorized"
+        403:
+          description: "Forbidden"
+      security:
+        - BearerAuth:
+            - "access"
+    put:
+      summary: "Edit category identified by the id passed in params"
+      description: ""
+      parameters:
+        - in: "path"
+          name: "id"
+          schema:
+            type: "string"
+          required: true
+      tags:
+        - "CATEGORIES"
+      responses:
+        401:
+          description: "Unauthorized"
+        403:
+          description: "Forbidden"
+      security:
+        - BearerAuth:
+            - "access"
+      requestBody:
+        content:
+          application/json: {}
+    delete:
+      summary: "Delete category identified by the id passed in params"
+      description: ""
+      parameters:
+        - in: "path"
+          name: "id"
+          schema:
+            type: "string"
+          required: true
+      tags:
+        - "CATEGORIES"
+      responses:
+        401:
+          description: "Unauthorized"
+        403:
+          description: "Forbidden"
+      security:
+        - BearerAuth:
+            - "access"
+  /items:
+    get:
+      summary: "Get items created by the authenticated user"
+      description: ""
+      parameters: []
+      tags:
+        - "ITEMS"
+      responses:
+        200:
+          description: "List of items"
+          content:
+            application/json:
+              schema:
+                $ref: "swagger/response/Item.yaml"
+        401:
+          description: "Unauthorized"
+        403:
+          description: "Forbidden"
+      security:
+        - BearerAuth:
+            - "access"
+    post:
+      summary: "Create an item"
+      description: ""
+      parameters: []
+      tags:
+        - "ITEMS"
+      responses:
+        200:
+          description: "Item created"
+          content:
+            application/json:
+              schema:
+                $ref: "swagger/response/NewItem.yaml"
+        401:
+          description: "Unauthorized"
+        403:
+          description: "Forbidden"
+      security:
+        - BearerAuth:
+            - "access"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "swagger/request/CreateItem.yaml"
+  /items/{id}:
+    get:
+      summary: "Get an item according to the id passed in params"
+      description: ""
+      parameters:
+        - in: "path"
+          name: "id"
+          schema:
+            type: "number"
+          required: true
+      tags:
+        - "ITEMS"
+      responses:
+        200:
+          description: "Entity found"
+          content:
+            application/json: {
+              "schema": {
+                "$ref": "swagger/response/Item.yaml"
+              }
+            }
+        401:
+          description: "Unauthorized"
+        403:
+          description: "Forbidden"
+      security:
+        - BearerAuth:
+            - "access"
+    put:
+      summary: "Edit item according to the id passed in params"
+      description: ""
+      parameters:
+        - in: "path"
+          name: "id"
+          schema:
+            type: "string"
+          required: true
+      tags:
+        - "ITEMS"
+      responses:
+        401:
+          description: "Unauthorized"
+        403:
+          description: "Forbidden"
+      security:
+        - BearerAuth:
+            - "access"
+      requestBody:
+        content:
+          application/json: {}
+    delete:
+      summary: "Delete item according to the id passed in params"
+      description: ""
+      parameters:
+        - in: "path"
+          name: "id"
+          schema:
+            type: "string"
+          required: true
+      tags:
+        - "ITEMS"
+      responses:
+        401:
+          description: "Unauthorized"
+        403:
+          description: "Forbidden"
+      security:
+        - BearerAuth:
+            - "access"
+components:
+  securitySchemes:
+    BearerAuth:
+      type: "http"
+      scheme: "bearer"
+tags:
+  - name: "USER"
+    description: "Requests related tu USER"
+  - name: "CATEGORIES"
+    description: "Requests related to CATEGORIES"
+  - name: "ITEMS"
+    description: "Requests related to ITEMS"
+  - name: "OTHER"
+    description: "OTHER requests"
