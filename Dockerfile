@@ -17,5 +17,6 @@ USER node
 RUN yarn
 
 EXPOSE 3333
+EXPOSE 8080
 
-ENTRYPOINT ["node","ace","serve","--watch"]
+ENTRYPOINT ["node","ace","serve","--watch", "--encore-args=--host 0.0.0.0"]

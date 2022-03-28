@@ -57,3 +57,7 @@ Route.group(() => {
   Route.resource('categories', 'CategoriesController').apiOnly()
   Route.resource('items', 'ItemsController').apiOnly()
 }).middleware('auth')
+
+Route.get('/foo', async ({ inertia }) => {
+  return inertia.render('Foo', { text: 'Hello, World!' })
+})

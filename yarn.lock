@@ -248,6 +248,14 @@
     rev-hash "^3.0.0"
     source-map-support "^0.5.21"
 
+"@adonisjs/session@^6.1.4":
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/@adonisjs/session/-/session-6.1.4.tgz#50258420eda2f4630195564003e44e33604a09f9"
+  integrity sha512-4XRQ/SFPVoF9mnGua1MagvZqYZXOG5OOwGatcDpBr1le+6nKP+uEl4IdU9sEk3URn5LBnOmPUAxQqQ6Ho+qpSw==
+  dependencies:
+    "@poppinss/utils" "^4.0.2"
+    fs-extra "^10.0.1"
+
 "@adonisjs/sink@^5.2.2":
   version "5.2.2"
   resolved "https://registry.yarnpkg.com/@adonisjs/sink/-/sink-5.2.2.tgz#936d2464f820161cd56c8a2ea73958d8a620f1d6"
@@ -310,7 +318,7 @@
   resolved "https://registry.yarnpkg.com/@babel/compat-data/-/compat-data-7.17.7.tgz#078d8b833fbbcc95286613be8c716cef2b519fa2"
   integrity sha512-p8pdE6j0a29TNGebNm7NzYZWB3xVZJBZ7XGs42uAKzQo8VQ3F0By/cQCtUEABwIqw5zo6WA4NbmxsfzADzMKnQ==
 
-"@babel/core@^7.7.0":
+"@babel/core@^7.17.8", "@babel/core@^7.7.0":
   version "7.17.8"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.17.8.tgz#3dac27c190ebc3a4381110d46c80e77efe172e1a"
   integrity sha512-OdQDV/7cRBtJHLSOBqqbYNkOcydOgnX59TZx4puf41fzcVtN3e/4yqY8lMQsK+5X2lJtAdmA+6OHqsj1hBJ4IQ==

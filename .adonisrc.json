@@ -15,18 +15,31 @@
   },
   "preloads": [
     "./start/routes",
-    "./start/kernel"
+    "./start/kernel",
+    {
+      "file": "./start/inertia",
+      "environment": [
+        "web"
+      ]
+    }
   ],
   "providers": [
     "./providers/AppProvider",
     "@adonisjs/core",
     "@adonisjs/lucid",
-    "@adonisjs/auth"
+    "@adonisjs/auth",
+    "@eidellev/inertia-adonisjs",
+    "@adonisjs/session",
+    "@adonisjs/view"
   ],
   "aceProviders": [
     "@adonisjs/repl"
   ],
   "metaFiles": [
+    {
+      "pattern": "public/**",
+      "reloadServer": false
+    },
     {
       "pattern": "resources/views/**/*.edge",
       "reloadServer": false

@@ -1,8 +1,8 @@
 {
   "entrypoints": {
-    "app": {
+    "main": {
       "js": [
-        "http://localhost:8080/assets/app.js"
+        "http://localhost:8080/assets/main.js"
       ]
     }
   }
